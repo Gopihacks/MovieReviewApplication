@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
-@CrossOrigin("http://127.0.0.1:5500")
+@CrossOrigin("*")
 public class movieReviewController {
 
         @Autowired
