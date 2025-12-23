@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource(value = "classpath:.env", factory = DotenvPropertySource.Factory.class)
 public class MovieReviewApplication {
 
     public static void main(String[] args) {
