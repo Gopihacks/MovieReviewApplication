@@ -13,7 +13,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/movies")
-@CrossOrigin("*")
+@CrossOrigin(
+        origins = "https://m0viereviewapp.netlify.app",
+        allowedHeaders = "*",
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS}
+)
 public class movieController {
 
     @Autowired
