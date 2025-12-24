@@ -23,7 +23,7 @@ public class loginController {
     @Autowired
     AuthenticationManager authmanager;
 
-    @PostMapping("/login")
+    @PostMapping()
     public ResponseEntity<?> login(@RequestBody Login login){
         try{
             Authentication authentication=authmanager
