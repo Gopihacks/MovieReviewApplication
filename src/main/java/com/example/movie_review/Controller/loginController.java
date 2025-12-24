@@ -16,14 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/login")
 public class loginController {
     @Autowired
     JwtUtil jwtUtil;
     @Autowired
     AuthenticationManager authmanager;
 
-    @PostMapping()
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Login login){
         try{
             Authentication authentication=authmanager
