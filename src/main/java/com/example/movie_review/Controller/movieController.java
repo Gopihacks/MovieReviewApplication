@@ -4,6 +4,7 @@ import com.example.movie_review.Entity.MovieReview;
 import com.example.movie_review.Entity.Movies;
 import com.example.movie_review.Repository.movieRepo;
 import com.example.movie_review.Service.movieService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,7 @@ public class movieController {
 
 
     @PostMapping
-    public Movies addMovie(@RequestBody Movies movies) {
+    public Movies addMovie(@Valid @RequestBody Movies movies) {
         return movieSer.addMovie(movies);
     }
 

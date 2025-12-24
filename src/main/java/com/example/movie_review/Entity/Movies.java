@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.antlr.v4.runtime.misc.NotNull;
+
 @Entity
 public class Movies {
 
@@ -14,8 +18,12 @@ public class Movies {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank
+    @Size(min = 2, message = "MovieName must be at least 2 characters")
     private String movieName;
 
+    @NotBlank
+    @Size(min = 5, message = "Gener must be at least 5 characters")
     private String genre;
 
     public Integer getId() {
