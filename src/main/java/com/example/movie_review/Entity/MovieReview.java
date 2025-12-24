@@ -1,6 +1,8 @@
 package com.example.movie_review.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class MovieReview {
@@ -24,6 +26,8 @@ public class MovieReview {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank
+    @Size(min = 2,message = "Enter minimum 2 character")
     private String review;
     private Integer rating;
 
