@@ -1,6 +1,7 @@
 package com.example.movie_review.SecurityConfig;
 
 import com.example.movie_review.AuthFilter.AuthFilter;
+import com.example.movie_review.JwtUtil.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,10 +31,14 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    AuthFilter authFilter;
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public AuthFilter authFilter(UserDetailsService userDetailsService,
+                                 JwtUtil jwtUtil) {
+        return new AuthFilter(userDetailsService, jwtUtil);
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthFilter authFilter) throws Exception{
         http
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
